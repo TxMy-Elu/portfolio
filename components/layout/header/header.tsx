@@ -40,7 +40,7 @@ export default function Header() {
     ];
 
     return (
-        <div className="bg-gradient-to-r from-[#FFF1DF] from-0% to-[#DEECF5] to-58%">
+        <div id="accueil" className="bg-gradient-to-r from-[#FFF1DF] from-0% to-[#DEECF5] to-58%">
             <div className="container mx-auto py-4 md:py-10 px-4">
                 <header className="w-full flex flex-col lg:flex-row justify-between items-center gap-4 md:gap-8"
                     style={{fontFamily: "var(--font-syncopate)"}}>

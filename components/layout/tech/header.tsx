@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header_tech() {
   return (
-    <div className="relative py-12 w-full">
+    <div id="technologies" className="relative py-12 w-full">
       <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between items-center px-8">
         <div className="h-[2px] bg-black flex-grow" />
         <div className="mx-8">
