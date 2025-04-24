@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6056.46 315.16">
+  <defs>
+    <g id="greek-key">
+      <g transform="translate(-17.438 -727.38)">
+        <g>
+          <path d="m27.081 987.82v-177.92h149.83v112.37h-74.916v-37.458h37.458v-37.458h-74.916v112.37h149.83v-177.92"
+                style="stroke:#000000;stroke-width:18.729;fill:none"/>
+          <path d="m251.83 987.82v-177.92h149.83v112.37h-74.916v-37.458h37.458v-37.458h-74.916v112.37h149.83v-177.92"
+                style="stroke:#000000;stroke-width:18.729;fill:none"/>
+          <path d="m476.57 987.82v-177.92h149.83v112.37h-74.916v-37.458h37.458v-37.458h-74.916v112.37h149.83v-177.92"
+                style="stroke:#000000;stroke-width:18.729;fill:none"/>
+          <path d="m17.717 773.83h672.64" style="stroke:#000000;stroke-width:20.335;fill:none"/>
+          <path d="m17.717 995.79h672.64" style="stroke:#000000;stroke-width:20.335;fill:none"/>
+          <path d="m17.424 1033.1h672.94" style="stroke:#000000;stroke-width:18.976;fill:none"/>
+          <path d="m17.424 736.86h672.94" style="stroke:#000000;stroke-width:18.976;fill:none"/>
+        </g>
+      </g>
+    </g>
+  </defs>
+
+  <!-- Répétition 9 fois du motif -->
+  <use href="#greek-key" x="0" />
+  <use href="#greek-key" x="672.94" />
+  <use href="#greek-key" x="1345.88" />
+  <use href="#greek-key" x="2018.82" />
+  <use href="#greek-key" x="2691.76" />
+  <use href="#greek-key" x="3364.7" />
+  <use href="#greek-key" x="4037.64" />
+  <use href="#greek-key" x="4710.58" />
+  <use href="#greek-key" x="5383.52" />
+</svg>
