@@ -10,9 +10,6 @@ export default function Home() {
       <Tech />
       <Projets />
       <Parcours />
-      <div className="text-5xl">
-        test
-      </div>
     </>
   );
 }
