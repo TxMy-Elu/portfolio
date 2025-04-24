@@ -46,6 +46,7 @@ export default function Header() {
                         <h1><a href="#projets" className="hover:text-blue-600 transition-colors duration-300">projets</a></h1>
                         <h1><a href="#parcours" className="hover:text-blue-600 transition-colors duration-300">parcours</a></h1>
                         <h1><a href="#contact" className="hover:text-blue-600 transition-colors duration-300">contact</a></h1>
+                        <h1><a href="#contact" className="hover:text-blue-600 transition-colors duration-300">documents</a></h1>
                     </nav>
                 </div>
 
