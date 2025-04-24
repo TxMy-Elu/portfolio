@@ -5,8 +5,7 @@ import Parcours from "@/components/layout/parcours/parcours";
 
 export default function Home() {
   return (
-    <>
-    
+    <>    
       <Header />
       <Tech />
       <Projets />
