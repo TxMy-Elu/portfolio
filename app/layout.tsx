@@ -7,9 +7,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   title: "Tom DOGUET - Portfolio",
   description: "Portfolio de Tom DOGUET, développeur web full-stack",
-  icons: {
-    icon: '/icon.png',
-  }
 };
 
 export default function RootLayout({
