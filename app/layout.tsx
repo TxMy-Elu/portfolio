@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   description: "Portfolio de Tom DOGUET, développeur web full-stack",
   icons: {
     icon: '/icon.png',
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
   }
 };
 
