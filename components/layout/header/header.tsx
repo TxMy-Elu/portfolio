@@ -30,60 +30,61 @@ function StatueWithGlow() {
 }
 
 export default function Header() {
+    const navItems = [
+        { href: "#accueil", label: "accueil" },
+        { href: "#technologies", label: "technologies" },
+        { href: "#projets", label: "projets" },
+        { href: "#parcours", label: "parcours" },
+        { href: "#contact", label: "contact" },
+        { href: "#documents", label: "documents" }
+    ];
+
     return (
         <div className="bg-gradient-to-r from-[#FFF1DF] from-0% to-[#DEECF5] to-58%">
-            <div className="py-10 px-4 md:px-20">
-                <div className="w-full flex justify-between items-center"
-                    style={
-                        {fontFamily: "var(--font-syncopate)"}
-                }>
-                    <div className="text-4xl font-bold w-2/3">
+            <div className="container mx-auto py-4 md:py-10 px-4">
+                <header className="w-full flex flex-col lg:flex-row justify-between items-center gap-4 md:gap-8"
+                    style={{fontFamily: "var(--font-syncopate)"}}>
+                    <div className="text-xl md:text-4xl font-bold text-center lg:text-left">
                         DOGUET Tom
                     </div>
-                    <nav className="w-1/3 flex items-center justify-end gap-x-8 text-2xl font-medium tracking-wide">
-                        <h1><a href="#accueil" className="hover:text-blue-600 transition-colors duration-300">accueil</a></h1>
-                        <h1><a href="#technologies" className="hover:text-blue-600 transition-colors duration-300">technologies</a></h1>
-                        <h1><a href="#projets" className="hover:text-blue-600 transition-colors duration-300">projets</a></h1>
-                        <h1><a href="#parcours" className="hover:text-blue-600 transition-colors duration-300">parcours</a></h1>
-                        <h1><a href="#contact" className="hover:text-blue-600 transition-colors duration-300">contact</a></h1>
-                        <h1><a href="#contact" className="hover:text-blue-600 transition-colors duration-300">documents</a></h1>
+                    <nav className="w-full lg:w-auto">
+                        <ul className="grid grid-cols-3 md:grid-cols-3 lg:flex items-center justify-end gap-4 lg:gap-8 text-xs md:text-base">
+                            {navItems.map((item, index) => (
+                                <li key={index} className="text-center">
+                                    <a 
+                                        href={item.href}
+                                        className="hover:text-blue-600 transition-colors duration-300 font-medium tracking-wide"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </nav>
-                </div>
+                </header>
 
-                {/* Content */}
-                <div className="flex flex-col gap-10"
-                    style={
-                        {fontFamily: "var(--font-syne)"}
-                }>
-                   
-                    <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-                        <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-6 md:gap-10 mt-8 md:mt-10"
+                    style={{fontFamily: "var(--font-syne)"}}>
+                    <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-6 md:gap-10">
+                        <div className="flex flex-col gap-4 md:gap-10 w-full lg:w-auto">
                             <ProfileCard/>
-                            <div className="flex flex-col gap-5 max-w-xl">
-                                <h1 className="text-3xl font-bold">À propos</h1>
-                                <p className="text-lg">
-                                    Développeur web passionné, je conçois des interfaces modernes et performantes en m’appuyant sur des technologies comme&nbsp;
-                                    <span className="font-bold text-blue-700">
-                                        Laravel</span>,
-                                    <span className="font-bold text-blue-700">
-                                    &nbsp;Next.js</span>
-                                    &nbsp;  et
-                                    <span className="font-bold text-blue-700">
-                                    &nbsp; Tailwind CSS</span>.
-                                                                                                                                                            En constante évolution, je me forme aux outils récents pour allier
-                                    <span className="font-semibold text-green-700">
-                                    &nbsp; technique</span>,
-                                    <span className="font-semibold text-purple-700">
-                                    &nbsp;design</span>
-                                    &nbsp; et
-                                    <span className="font-semibold text-yellow-700">
-                                    &nbsp;créativité</span>.
+                            <div className="flex flex-col gap-3 md:gap-5 max-w-xl">
+                                <h1 className="text-xl md:text-3xl font-bold">À propos</h1>
+                                <p className="text-base md:text-lg">
+                                    Développeur web passionné, je conçois des interfaces modernes et performantes en m'appuyant sur des technologies comme&nbsp;
+                                    <span className="font-bold text-blue-700">Laravel</span>,
+                                    <span className="font-bold text-blue-700">&nbsp;Next.js</span>&nbsp;et
+                                    <span className="font-bold text-blue-700">&nbsp;Tailwind CSS</span>.
+                                    En constante évolution, je me forme aux outils récents pour allier
+                                    <span className="font-semibold text-green-700">&nbsp;technique</span>,
+                                    <span className="font-semibold text-purple-700">&nbsp;design</span>&nbsp;et
+                                    <span className="font-semibold text-yellow-700">&nbsp;créativité</span>.
                                 </p>
                             </div>
-                            <div className="flex justify-between max-w-3xl gap-5">
-                                <InfoCard icon="/icons/map-pin.svg" label="Localisation" value="Nancy, France" rotate="rotate-[-6deg]"/>
-                                <InfoCard icon="/icons/briefcase.svg" label="Type" value="Alternance" rotate="rotate-[4deg]"/>
-                                <InfoCard icon="/icons/search.svg" label="Statut" value="Recherche" rotate="rotate-[-3deg]"/>
+                            <div className="flex flex-col sm:flex-row justify-between max-w-3xl gap-3 md:gap-5">
+                                <InfoCard icon="/icons/map-pin.svg" label="Localisation" value="Nancy, France" rotate="md:rotate-[-6deg]"/>
+                                <InfoCard icon="/icons/briefcase.svg" label="Type" value="Alternance" rotate="md:rotate-[4deg]"/>
+                                <InfoCard icon="/icons/search.svg" label="Statut" value="Recherche" rotate="md:rotate-[-3deg]"/>
                             </div>
                         </div>
                         <StatueWithGlow/>
