@@ -50,6 +50,20 @@ export default function DocumentsPro() {
             Rapport de Stage 2
           </span>
         </a>
+
+        <a
+          href="/documents/Tableau_de_synthèse.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center bg-white/50 backdrop-blur-sm border border-gray-100 rounded-xl p-5 hover:bg-blue-50/50 transition-all duration-300 group"
+        >
+          <div className="bg-blue-600/10 p-3 rounded-lg">
+            <FaFileContract className="text-2xl text-blue-600" />
+          </div>
+          <span className="ml-4 font-medium text-gray-700 group-hover:text-blue-600">
+            Tableau de synthèse
+          </span>
+        </a>
       </div>
     </div>
   );
