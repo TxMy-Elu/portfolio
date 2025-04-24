@@ -24,7 +24,7 @@ export const personalProjects = [
   {
     title: "camping_WEB",
     description: "Propulsée par React, notre application web vous offre performance, simplicité et personnalisation, pour une gestion optimale de votre présence professionnelle.",
-    link: "github.com/TxMy-Elu/camping_web",
+    link: "https://github.com/TxMy-Elu/camping_web",
     technologies: [
       { name: "React", icon: "/icons/tech/lg/react-2.svg" },
       { name: "Tailwind CSS", icon: "/icons/tech/lg/tailwindcss.svg" }
@@ -49,7 +49,7 @@ export const personalProjects = [
   {
     title: "Web_Cafe",
     description: "WebCafe est une application frontend développée avec Next.js, permettant aux utilisateurs de consulter et filtrer les dosettes de café disponibles par marque, pays d’origine et prix. L’interface moderne et réactive offre une expérience fluide pour explorer les références proposées.",
-    link: "https://github.com/TxMy-Elu/cafe_web",
+    link: "https://github.com/TxMy-Elu/web_cafe",
     technologies: [
         { name: "Next Js", icon: "/icons/tech/lg/next-js.svg" },
         { name: "Tailwind CSS", icon: "/icons/tech/lg/tailwindcss.svg" }
