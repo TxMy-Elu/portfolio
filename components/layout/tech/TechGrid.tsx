@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // Définition des types pour les technologies
 interface Technology {
@@ -89,62 +90,119 @@ export default function TechGrid() {
   const backendTech = technologies.filter(tech => tech.category === "backend");
   const toolsTech = technologies.filter(tech => tech.category === "tools");
 
+  // Animations pour les conteneurs
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  // Animations pour les sections
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15,
+        mass: 1
+      }
+    }
+  };
+
   return (
-    <div className="space-y-12">
+    <motion.div 
+      className="space-y-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={containerVariants}
+    >
       {/* Section Frontend */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 shadow-sm">
-        <h3 className="text-xl font-bold text-blue-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm">
+      <motion.div 
+        className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-500"
+        variants={sectionVariants}
+      >
+        <motion.h3 
+          className="text-xl font-bold text-blue-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
           Frontend
-        </h3>
+        </motion.h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {frontendTech.map((tech) => (
+          {frontendTech.map((tech, index) => (
             <TechCard 
               key={tech.name}
               tech={tech}
               isHovered={hoveredTech === tech.name}
               onHover={() => setHoveredTech(tech.name)}
               onLeave={() => setHoveredTech(null)}
+              index={index}
             />
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Section Backend */}
-      <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 shadow-sm">
-        <h3 className="text-xl font-bold text-emerald-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm">
+      <motion.div 
+        className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-500"
+        variants={sectionVariants}
+      >
+        <motion.h3 
+          className="text-xl font-bold text-emerald-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
           Backend
-        </h3>
+        </motion.h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {backendTech.map((tech) => (
+          {backendTech.map((tech, index) => (
             <TechCard 
               key={tech.name}
               tech={tech}
               isHovered={hoveredTech === tech.name}
               onHover={() => setHoveredTech(tech.name)}
               onLeave={() => setHoveredTech(null)}
+              index={index}
             />
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Section Outils */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 shadow-sm">
-        <h3 className="text-xl font-bold text-amber-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm">
+      <motion.div 
+        className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-500"
+        variants={sectionVariants}
+      >
+        <motion.h3 
+          className="text-xl font-bold text-amber-700 mb-6 inline-block px-4 py-2 bg-white rounded-lg shadow-sm"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
           Outils
-        </h3>
+        </motion.h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {toolsTech.map((tech) => (
+          {toolsTech.map((tech, index) => (
             <TechCard 
               key={tech.name}
               tech={tech}
               isHovered={hoveredTech === tech.name}
               onHover={() => setHoveredTech(tech.name)}
               onLeave={() => setHoveredTech(null)}
+              index={index}
             />
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -153,36 +211,73 @@ function TechCard({
   tech, 
   isHovered, 
   onHover, 
-  onLeave 
+  onLeave,
+  index
 }: { 
   tech: Technology; 
   isHovered: boolean;
   onHover: () => void;
   onLeave: () => void;
+  index: number;
 }) {
+  // Animation pour chaque carte
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 15,
+        delay: index * 0.05
+      }
+    }
+  };
+
   return (
-    <div 
-      className={`bg-white rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300 ease-in-out hover:bg-opacity-95 ${
-        isHovered ? 'shadow-md transform -translate-y-1' : 'shadow-sm hover:shadow'
-      }`}
+    <motion.div 
+      className={`bg-white rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300 ease-in-out hover:bg-opacity-95`}
+      variants={cardVariants}
+      whileHover={{ 
+        y: -8, 
+        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+        transition: { type: "spring", stiffness: 400, damping: 10 }
+      }}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
-      <div className="relative w-12 h-12 mb-3 transition-transform duration-300 ease-in-out transform group-hover:scale-105">
+      <motion.div 
+        className="relative w-12 h-12 mb-3"
+        whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
+        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+      >
         <Image 
           src={tech.icon} 
           alt={tech.name}
           fill
           className="object-contain"
         />
-      </div>
-      <h4 className="font-medium text-slate-800 text-center transition-colors duration-300 ease-in-out">{tech.name}</h4>
+      </motion.div>
+      <motion.h4 
+        className="font-medium text-slate-800 text-center"
+        animate={{ color: isHovered ? "#4f46e5" : "#1e293b" }}
+        transition={{ duration: 0.3 }}
+      >
+        {tech.name}
+      </motion.h4>
       
-      <div className={`mt-2 text-xs text-slate-600 text-center overflow-hidden transition-all duration-300 ease-in-out ${
-        isHovered ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-      }`}>
+      <motion.div 
+        className="mt-2 text-xs text-slate-600 text-center overflow-hidden"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ 
+          height: isHovered ? "auto" : 0,
+          opacity: isHovered ? 1 : 0
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         {tech.description}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
