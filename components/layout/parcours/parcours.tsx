@@ -1,3 +1,5 @@
+'use client';
+import { motion } from "framer-motion";
 import Header_parc from "./header";
 import Formation from "./formation";
 
@@ -40,12 +42,32 @@ const formations = [
 
 export default function Parcours() {
   return (
-    <div className="flex flex-col gap-10 p-4 bg-gray-50 min-h-screen">
+    <div className="py-16 bg-gradient-to-b from-white to-gray-50">
       <Header_parc />
-      <div className="max-w-4xl mx-auto w-full space-y-6">
-        {formations.map((formation, index) => (
-          <Formation key={index} {...formation} />
-        ))}
+      
+      <div className="max-w-6xl mx-auto w-full px-4">
+        {/* Présentation en grille */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {formations.map((formation, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
+            >
+              <Formation {...formation} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

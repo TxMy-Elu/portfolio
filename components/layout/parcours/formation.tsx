@@ -1,3 +1,6 @@
+'use client';
+import { motion } from "framer-motion";
+
 interface FormationProps {
   ecole: string;
   diplome: string;
@@ -11,53 +14,70 @@ interface FormationProps {
 
 export default function Formation({ ecole, diplome, periode, competences }: FormationProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-      <h3 className="text-2xl font-semibold text-gray-800">{ecole}</h3>
-      <p className="text-lg text-gray-700 mt-2">{diplome}</p>
-      <p className="text-gray-600 mt-1">{periode}</p>
-      
-      {competences && (
-        <div className="mt-4 space-y-3">
-          {competences.langages && competences.langages.length > 0 && (
-            <div>
-              <p className="font-medium text-gray-700">Langages :</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {competences.langages.map((langage, index) => (
-                  <span key={index} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                    {langage}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          {competences.frameworks && competences.frameworks.length > 0 && (
-            <div>
-              <p className="font-medium text-gray-700">Frameworks :</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {competences.frameworks.map((framework, index) => (
-                  <span key={index} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                    {framework}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          {competences.outils && competences.outils.length > 0 && (
-            <div>
-              <p className="font-medium text-gray-700">Outils :</p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {competences.outils.map((outil, index) => (
-                  <span key={index} className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                    {outil}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+    <motion.div 
+      className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg border border-gray-100 h-full"
+      whileHover={{ 
+        scale: 1.03, 
+        rotate: -1,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex flex-col h-full">
+        <div className="mb-4">
+          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mb-4"></div>
+          <h3 className="text-xl font-bold text-gray-800">{ecole}</h3>
+          {diplome && <p className="text-gray-700 mt-2">{diplome}</p>}
+          <div className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mt-3">
+            {periode}
+          </div>
         </div>
-      )}
-    </div>
+        
+        {competences && (
+          <div className="mt-4 flex-grow">
+            <div className="flex flex-wrap gap-2">
+              {competences.langages && competences.langages.map((langage, index) => (
+                <motion.span 
+                  key={`lang-${index}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * index }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mb-2"
+                >
+                  {langage}
+                </motion.span>
+              ))}
+              
+              {competences.frameworks && competences.frameworks.map((framework, index) => (
+                <motion.span 
+                  key={`frame-${index}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * index }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="bg-gradient-to-r from-green-50 to-green-100 text-green-800 px-3 py-1 rounded-full text-sm mb-2"
+                >
+                  {framework}
+                </motion.span>
+              ))}
+              
+              {competences.outils && competences.outils.map((outil, index) => (
+                <motion.span 
+                  key={`tool-${index}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * index }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="bg-gradient-to-r from-purple-50 to-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mb-2"
+                >
+                  {outil}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 }

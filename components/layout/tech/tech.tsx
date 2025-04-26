@@ -1,13 +1,13 @@
 import Header_tech from "./header";
-import Card_tech from "./card";
+import TechGrid from "./TechGrid";
 
 export default function Tech() {
   return (
-    <>
-      <div className="flex flex-col gap-10 p-4">
+    <div id="technologies" className="py-16 px-4 md:px-8 bg-gradient-to-b from-white to-slate-50">
+      <div className="container mx-auto max-w-6xl">
         <Header_tech />
-        <Card_tech />
+        <TechGrid />
       </div>
-    </>
+    </div>
   );
 }

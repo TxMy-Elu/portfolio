@@ -2,18 +2,17 @@ import Image from "next/image";
 
 export default function Header_tech() {
   return (
-    <div id="technologies" className="relative py-12 w-full">
-      <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 flex justify-between items-center px-8">
-        <div className="h-[2px] bg-black flex-grow" />
-        <div className="mx-8">
-          <h1 className="font-bold text-5xl uppercase tracking-wider relative">
-            technologies
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-black transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-          </h1>
-        </div>
-        <div className="h-[2px] bg-black flex-grow" />
-      </div>
-     
+    <div className="flex flex-col items-center mb-12">
+      <h2 
+        className="text-3xl md:text-4xl font-bold text-center relative pb-4 mb-6"
+        style={{ fontFamily: "var(--font-syncopate)" }}
+      >
+        TECHNOLOGIES
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-blue-600 rounded-full"></div>
+      </h2>
+      <p className="text-slate-600 text-center max-w-2xl" style={{ fontFamily: "var(--font-syne)" }}>
+        Les technologies et outils que j'utilise pour créer des applications web modernes et performantes.
+      </p>
     </div>
   );
 }
