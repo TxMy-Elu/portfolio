@@ -26,8 +26,7 @@ export default function Header() {
         { href: "#projets", label: "Projets" },
         { href: "#parcours", label: "Parcours" },
         { href: "#contact", label: "Contact" },
-        { href: "#documents", label: "Documents" },
-        { href: "/veille", label: "Veille" }
+        { href: "#documents", label: "Documents" }
     ];
 
     const containerVariants = {
