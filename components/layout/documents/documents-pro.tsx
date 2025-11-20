@@ -10,27 +10,6 @@ export default function DocumentsPro() {
       icon: <FaFilePdf className="text-3xl text-white" />,
       iconBg: "bg-red-500",
       link: "/documents/CV_Tom_Doguet.pdf"
-    },
-    {
-      title: "Rapport de Stage 1",
-      description: "Rapport détaillé de mon premier stage en entreprise.",
-      icon: <FaFileAlt className="text-3xl text-white" />,
-      iconBg: "bg-blue-500",
-      link: "/documents/rapport_stage_1.pdf"
-    },
-    {
-      title: "Rapport de Stage 2",
-      description: "Rapport détaillé de mon second stage en entreprise.",
-      icon: <FaFileAlt className="text-3xl text-white" />,
-      iconBg: "bg-green-500",
-      link: "/documents/rapport_stage_2.pdf"
-    },
-    {
-      title: "Tableau de synthèse",
-      description: "Tableau récapitulatif de mes compétences acquises.",
-      icon: <FaTable className="text-3xl text-white" />,
-      iconBg: "bg-purple-500",
-      link: "/documents/Tableau_de_synthèse.pdf"
     }
   ];
 
