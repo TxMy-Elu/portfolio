@@ -13,6 +13,9 @@ export default function DocumentsPro() {
     }
   ];
 
+  const hasMultiple = documents.length > 1;
+  const containerClass = `grid grid-cols-1 ${hasMultiple ? 'md:grid-cols-2' : ''} gap-6 justify-center justify-items-center max-w-3xl mx-auto`;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,7 +37,7 @@ export default function DocumentsPro() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      className={containerClass}
     >
       {documents.map((doc, index) => (
         <motion.a
