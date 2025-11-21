@@ -32,7 +32,7 @@ export default function Header_doc() {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          Consultez mes documents professionnels et rapports de stage.
+          Consultez mes documents professionnels.
         </motion.p>
       </div>
     </div>
