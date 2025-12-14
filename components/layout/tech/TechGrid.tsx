@@ -250,7 +250,7 @@ function TechCard({
       <motion.div 
         className="relative w-12 h-12 mb-3"
         whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
-        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+        transition={{ type: "spring", stiffness: 300, damping: 10, rotate: { type: "tween", duration: 0.5, ease: "easeInOut" } }}
       >
         <Image 
           src={tech.icon} 
