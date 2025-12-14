@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 // Définition des types pour les technologies
 interface Technology {
@@ -100,7 +101,7 @@ export default function TechGrid() {
         delayChildren: 0.2
       }
     }
-  };
+  } satisfies Variants;
 
   // Animations pour les sections
   const sectionVariants = {
@@ -109,13 +110,13 @@ export default function TechGrid() {
       opacity: 1, 
       y: 0,
       transition: { 
-        type: "spring", 
+        type: "spring" as const, 
         stiffness: 100, 
         damping: 15,
         mass: 1
       }
     }
-  };
+  } satisfies Variants;
 
   return (
     <motion.div 
@@ -227,13 +228,13 @@ function TechCard({
       opacity: 1, 
       y: 0,
       transition: { 
-        type: "spring", 
+        type: "spring" as const, 
         stiffness: 300, 
         damping: 15,
         delay: index * 0.05
       }
     }
-  };
+  } satisfies Variants;
 
   return (
     <motion.div 
@@ -250,7 +251,7 @@ function TechCard({
       <motion.div 
         className="relative w-12 h-12 mb-3"
         whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
-        transition={{ type: "spring", stiffness: 300, damping: 10, rotate: { type: "tween", duration: 0.5, ease: "easeInOut" } }}
+        transition={{ type: "spring", stiffness: 300, damping: 10 }}
       >
         <Image 
           src={tech.icon} 

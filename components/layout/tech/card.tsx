@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export default function Card_tech() {
   // Animations pour les conteneurs
@@ -13,7 +14,7 @@ export default function Card_tech() {
         delayChildren: 0.1
       }
     }
-  };
+  } satisfies Variants;
 
   // Animations pour les cartes
   const cardVariants = {
@@ -22,12 +23,12 @@ export default function Card_tech() {
       opacity: 1, 
       y: 0,
       transition: { 
-        type: "spring", 
+        type: "spring" as const, 
         stiffness: 100, 
         damping: 15 
       }
     }
-  };
+  } satisfies Variants;
 
   // Animations pour les technologies
   const techVariants = {
@@ -37,11 +38,11 @@ export default function Card_tech() {
       scale: 1,
       transition: { 
         delay: i * 0.1,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200
       }
     })
-  };
+  } satisfies Variants;
 
   return (
     <motion.div 

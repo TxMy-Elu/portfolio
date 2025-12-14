@@ -6,6 +6,7 @@ import ProfileCard from "./ProfileCard";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,9 +46,9 @@ export default function Header() {
         visible: {
             y: 0,
             opacity: 1,
-            transition: { type: "spring", stiffness: 100 }
+            transition: { type: "spring" as const, stiffness: 100 }
         }
-    };
+    } satisfies Variants;
 
     return (
         <div className="relative bg-gradient-to-r from-slate-50 to-blue-50">
