@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fond -->
+  <rect width="32" height="32" rx="7" fill="#050510"/>
+  <!-- Bordure cyan subtile -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Texte TD -->
+  <text
+    x="16" y="22"
+    text-anchor="middle"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="14"
+    letter-spacing="-0.5"
+    fill="white"
+  >TD</text>
+  <!-- Point cyan -->
+  <circle cx="23.5" cy="22" r="2" fill="#00D4FF"/>
+</svg>
