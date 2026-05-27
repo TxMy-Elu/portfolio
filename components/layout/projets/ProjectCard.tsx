@@ -1,96 +1,66 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
+'use client'
 
-interface Technology {
-  name: string;
-  icon: string;
-}
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
+
+interface Technology { name: string; icon: string }
 
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  link: string;
-  technologies: Technology[];
-  isLogo?: boolean;
+  title:        string
+  description:  string
+  link:         string
+  technologies: Technology[]
+  isLogo?:      boolean
 }
 
 export default function ProjectCard({ title, description, link, technologies, isLogo = false }: ProjectCardProps) {
   return (
-    <motion.div 
-      className="bg-white rounded-xl overflow-hidden h-full flex flex-col shadow-md"
-      whileHover={{ 
-        y: -8,
-        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-      }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+    <motion.div
+      className="group relative rounded-2xl flex flex-col h-full overflow-hidden"
+      style={{ backdropFilter: 'blur(8px)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+      whileHover={{ y: -6, borderColor: 'rgba(0,212,255,0.35)' }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
-      {/* En-tête avec dégradé */}
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 relative">
-        <div className="flex justify-between items-center">
-          {isLogo ? (
-            <div className="bg-white p-3 rounded-lg shadow-md">
-              <Image
-                src={title}
-                alt="Logo du projet"
-                width={144}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </div>
-          ) : (
-            <h2 className="text-xl font-bold text-white">{title}</h2>
-          )}
-          
-          <motion.a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white p-2 rounded-full shadow-md"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Image 
-              src="/icons/projets/share.svg" 
-              alt="Visiter le site" 
-              width={20}
-              height={20}
-            />
-          </motion.a>
-        </div>
-        
-        {/* Forme décorative */}
-        <div className="absolute -bottom-5 left-0 right-0 h-10 bg-white" style={{ 
-          clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0% 100%)" 
-        }}></div>
+      {/* Glow hover */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{ boxShadow: 'inset 0 0 30px rgba(0,212,255,0.07)' }} />
+
+      {/* Header carte */}
+      <div className="p-6 border-b border-white/6 flex items-center justify-between gap-3">
+        {isLogo ? (
+          <div className="bg-white rounded-lg px-3 py-1.5">
+            <Image src={title} alt="Logo" width={120} height={32} className="h-7 w-auto" />
+          </div>
+        ) : (
+          <h3 className="text-white font-bold text-lg leading-tight">{title}</h3>
+        )}
+        <motion.a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#94A3B8] hover:text-[#00D4FF] hover:border-[#00D4FF]/40 transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ExternalLink size={14} />
+        </motion.a>
       </div>
-      
-      {/* Corps de la carte */}
-      <div className="p-6 pt-8 flex-grow">
-        <p className="text-gray-700 leading-relaxed">{description}</p>
+
+      {/* Body */}
+      <div className="p-6 flex-grow">
+        <p className="text-[#94A3B8] text-sm leading-relaxed">{description}</p>
       </div>
-      
-      {/* Pied de carte avec technologies */}
-      <div className="p-4 border-t border-gray-100 mt-auto">
-        <p className="text-sm font-medium text-gray-500 mb-3">Technologies utilisées :</p>
-        <div className="flex flex-wrap gap-3">
-          {technologies.map((tech, index) => (
-            <motion.div 
-              key={index} 
-              className="flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-full"
-              whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
-            >
-              <Image
-                src={tech.icon}
-                alt={tech.name}
-                width={20}
-                height={20}
-                className="w-5 h-5"
-              />
-              <span className="text-sm text-gray-700">{tech.name}</span>
-            </motion.div>
-          ))}
-        </div>
+
+      {/* Footer techno */}
+      <div className="px-6 pb-6 flex flex-wrap gap-2">
+        {technologies.map((tech, i) => (
+          <div key={i} className="flex items-center gap-1.5 rounded-full px-3 py-1" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <Image src={tech.icon} alt={tech.name} width={14} height={14} className="w-3.5 h-3.5" />
+            <span className="text-xs text-[#94A3B8] font-medium">{tech.name}</span>
+          </div>
+        ))}
       </div>
     </motion.div>
-  );
+  )
 }
