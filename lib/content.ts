@@ -1,3 +1,12 @@
+export const siteUrl = 'https://www.tom-doguet.app'
+
+export const seo = {
+  title: 'Tom Doguet — Assistant chef de projet informatique',
+  description:
+    'Portfolio de Tom Doguet, assistant chef de projet informatique en alternance chez Batigère à Metz. Concepteur développeur d’applications, en mastère MAALSI au CESI (2026–2028). Projets, parcours et contact.',
+  tagline: 'Du code au pilotage de projet.',
+}
+
 export const profile = {
   name: 'Tom Doguet',
   role: 'Assistant chef de projet informatique',
