@@ -40,13 +40,13 @@ export default function About() {
           <Reveal delay={0.2} className="mt-10 grid gap-6 text-lg leading-relaxed text-muted md:grid-cols-2">
             <p>
               En alternance chez Batigère depuis septembre 2025, j’y ai d’abord été concepteur logiciels pendant mon
-              bachelor CDA — PL/SQL, flux ETL, développement sur un SI en production. Le CDA terminé, j’ai enchaîné
+              bachelor CDA : PL/SQL, flux ETL, développement sur un SI en production. Le CDA terminé, j’ai enchaîné
               sur le mastère MAALSI au CESI et je suis devenu assistant chef de projet : planning, comptes rendus,
               suivi des risques, lien entre équipes techniques et métier.
             </p>
             <p>
               Le MAALSI couvre les deux faces du métier que je vise : la gestion de projet agile et l’architecture
-              logicielle. À côté, je continue de construire : full stack Laravel, Spring Boot, React, Flutter — avec
+              logicielle. À côté, je continue de construire : full stack Laravel, Spring Boot, React, Flutter, avec
               une incursion assumée dans la modélisation statistique.
             </p>
           </Reveal>
@@ -55,7 +55,7 @@ export default function About() {
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={0.1 * i} className="flex flex-col border-t border-line pt-4">
                 <dt className="order-last mt-2 text-sm text-muted">{s.label}</dt>
-                <dd className="text-5xl font-medium tracking-[-0.04em] md:text-6xl">{s.value}</dd>
+                <dd className="whitespace-nowrap text-5xl font-medium tracking-[-0.04em] md:text-4xl lg:text-5xl xl:text-6xl">{s.value}</dd>
               </Reveal>
             ))}
           </dl>

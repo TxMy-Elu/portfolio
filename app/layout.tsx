@@ -17,7 +17,7 @@ const instrument = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: seo.title, template: `%s — ${profile.name}` },
+  title: { default: seo.title, template: `%s · ${profile.name}` },
   description: seo.description,
   applicationName: profile.name,
   authors: [{ name: profile.name, url: siteUrl }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: 'profile',
     url: '/',
     siteName: profile.name,
-    title: `${profile.name} — ${seo.tagline}`,
+    title: `${profile.name} · ${seo.tagline}`,
     description: seo.description,
     locale: 'fr_FR',
     firstName: 'Tom',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${profile.name} — ${seo.tagline}`,
+    title: `${profile.name} · ${seo.tagline}`,
     description: seo.description,
   },
   robots: {

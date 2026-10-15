@@ -50,7 +50,7 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      {/* Grid — the whole card is clickable through the title link */}
+      {/* Grid: the whole card is clickable through the title link */}
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         {projects.map((p, i) => {
           const href = p.live ?? p.repo

@@ -37,8 +37,8 @@ export default function Parcours() {
                   <p className="mt-1 font-serif text-lg italic text-muted">{e.org}</p>
                   <ul className="mt-4 space-y-1.5 text-muted">
                     {e.points.map((p) => (
-                      <li key={p} className="flex gap-3">
-                        <span aria-hidden className="text-accent-text">—</span>
+                      <li key={p} className="flex items-baseline gap-3">
+                        <span aria-hidden className="size-1.5 shrink-0 -translate-y-0.5 rounded-full bg-accent" />
                         {p}
                       </li>
                     ))}

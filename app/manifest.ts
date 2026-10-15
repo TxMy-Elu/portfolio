@@ -3,7 +3,7 @@ import { profile, seo } from '@/lib/content'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${profile.name} — Portfolio`,
+    name: `${profile.name} · Portfolio`,
     short_name: profile.name,
     description: seo.description,
     start_url: '/',
