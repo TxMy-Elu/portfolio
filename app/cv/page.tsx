@@ -1,168 +1,124 @@
 'use client'
 
-const CV_DATA = {
-  name:    'Tom Doguet',
-  title:   'Développeur · CDA CESI · Alternant BATIGERE GIE',
-  contact: [
-    'Metz, France',
-    'to.doguet@gmail.com',
-    'linkedin.com/in/tom-doguet-7b8457271',
-    'github.com/TxMy-Elu',
-  ],
-  experience: [
-    {
-      poste:   'Développeur Web — Alternance',
-      lieu:    'BATIGERE GIE, Metz',
-      periode: '2025 — en cours',
-      missions: [
-        'Développement applicatif au pôle Études & Développement',
-        'Conception et optimisation de requêtes SQL Oracle',
-        'Création de pipelines de données avec Talend (ETL)',
-      ],
-    },
-  ],
-  formation: [
-    { diplome: 'CDA — Concepteur Développeur d\'Applications', ecole: 'CESI',                    periode: '2025 — en cours' },
-    { diplome: 'BTS SIO',                                      ecole: 'Lycée Raymond Poincaré',  periode: '2023 — 2025'    },
-    { diplome: '1ère année informatique',                      ecole: 'Université de Lorraine',  periode: '2022 — 2023'    },
-    { diplome: 'Baccalauréat STI2D',                           ecole: 'Lycée Raymond Poincaré',  periode: '2022'           },
-  ],
-  competences: [
-    { label: 'Frontend',  items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
-    { label: 'Backend',   items: ['Laravel', 'Spring Boot', 'Node.js', 'Java', 'Python'] },
-    { label: 'Données',   items: ['SQL Oracle', 'MySQL', 'Talend'] },
-    { label: 'Outils',    items: ['Docker', 'Git', 'Figma'] },
-  ],
-  projets: [
-    { nom: 'Wisikard',    desc: 'Carte de visite digitale pour professionnels',            stack: 'Laravel, Tailwind CSS'    },
-    { nom: 'camping_API', desc: 'API RESTful de gestion de camping (réservations, users)', stack: 'Spring Boot, Java, MySQL' },
-    { nom: 'camping_WEB', desc: 'Frontend de gestion de présence professionnelle',         stack: 'React, Tailwind CSS'      },
-    { nom: 'Web_Cafe',    desc: 'Consultation et filtrage de dosettes de café',            stack: 'Next.js, Tailwind CSS'    },
-  ],
+import { education, experiences, featuredProject, profile, projects, skills } from '@/lib/content'
+
+const contact = [profile.location, profile.email, 'linkedin.com/in/tom-doguet-7b8457271', 'github.com/TxMy-Elu']
+
+const cvProjects = [
+  { name: featuredProject.name, desc: featuredProject.tagline, stack: featuredProject.stack.slice(0, 3).join(', ') },
+  ...projects.slice(0, 3).map((p) => ({ name: p.name, desc: p.tagline, stack: p.stack.join(', ') })),
+]
+
+function Heading({ children }: { children: React.ReactNode }) {
+  return <h2 className="mb-5 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">{children}</h2>
 }
 
 export default function CVPage() {
   return (
     <>
-      {/* Barre d'actions — masquée à l'impression */}
-      <div className="no-print fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-3 bg-white border-b border-gray-100">
-        <a href="/" className="text-xs text-gray-400 hover:text-gray-700 transition-colors tracking-wide">
+      <div className="no-print fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-gray-100 bg-white px-8 py-3">
+        <a href="/" className="text-xs tracking-wide text-gray-400 transition-colors hover:text-gray-700">
           ← Portfolio
         </a>
         <button
           onClick={() => window.print()}
-          className="text-xs font-semibold text-gray-700 hover:text-black transition-colors tracking-wide flex items-center gap-1.5"
+          className="flex items-center gap-1.5 text-xs font-semibold tracking-wide text-gray-700 transition-colors hover:text-black"
         >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           Télécharger PDF
         </button>
       </div>
 
-      {/* Page CV */}
-      <div className="cv-wrap bg-[#f5f4f0] min-h-screen flex justify-center pt-16 pb-12 px-4 print:pt-0 print:pb-0 print:bg-white">
-        <div className="cv-sheet w-full max-w-[740px] bg-white px-14 py-12 print:px-10 print:py-8">
-
-          {/* ── En-tête ── */}
-          <div className="mb-10 pb-8" style={{ borderBottom: '1px solid #e5e5e5' }}>
-            <h1 className="text-4xl font-black tracking-tight text-gray-900 mb-1">
-              {CV_DATA.name}
-            </h1>
-            <p className="text-sm text-gray-400 mb-6">{CV_DATA.title}</p>
+      <div className="cv-wrap flex min-h-screen justify-center bg-[#f5f4f0] px-4 pb-12 pt-16 text-gray-900">
+        <div className="cv-sheet w-full max-w-[740px] bg-white px-14 py-12">
+          <header className="mb-10 pb-8" style={{ borderBottom: '1px solid #e5e5e5' }}>
+            <h1 className="mb-1 text-4xl font-black tracking-tight">{profile.name}</h1>
+            <p className="mb-6 text-sm text-gray-400">{profile.role} · Alternance Batigère × CESI</p>
             <div className="flex flex-wrap gap-x-5 gap-y-0.5">
-              {CV_DATA.contact.map((c, i) => (
-                <span key={i} className="text-xs text-gray-500">{c}</span>
+              {contact.map((c) => (
+                <span key={c} className="text-xs text-gray-500">{c}</span>
               ))}
             </div>
-          </div>
+          </header>
 
-          {/* ── Expérience ── */}
           <section className="mb-9">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mb-5">
-              Expérience
-            </h2>
-            {CV_DATA.experience.map((exp, i) => (
-              <div key={i}>
-                <div className="flex justify-between items-baseline mb-0.5">
-                  <span className="text-sm font-bold text-gray-900">{exp.poste}</span>
-                  <span className="text-xs text-gray-400">{exp.periode}</span>
-                </div>
-                <p className="text-xs text-gray-400 mb-2">{exp.lieu}</p>
-                <ul className="space-y-1 mb-3">
-                  {exp.missions.map((m, j) => (
-                    <li key={j} className="text-sm text-gray-600 flex gap-2.5">
-                      <span className="text-gray-300 shrink-0 mt-0.5">–</span>
-                      {m}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </section>
-
-          {/* ── Formation ── */}
-          <section className="mb-9">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mb-5">
-              Formation
-            </h2>
-            <div className="space-y-3">
-              {CV_DATA.formation.map((f, i) => (
-                <div key={i} className="flex justify-between items-baseline">
-                  <div>
-                    <span className="text-sm font-semibold text-gray-900">{f.diplome}</span>
-                    <span className="text-sm text-gray-400"> · {f.ecole}</span>
+            <Heading>Expérience</Heading>
+            <div className="space-y-5">
+              {experiences.map((e) => (
+                <div key={e.role}>
+                  <div className="mb-0.5 flex items-baseline justify-between">
+                    <span className="text-sm font-bold">{e.role}</span>
+                    <span className="text-xs text-gray-400">{e.period}</span>
                   </div>
-                  <span className="text-xs text-gray-400 whitespace-nowrap ml-6">{f.periode}</span>
+                  <p className="mb-2 text-xs text-gray-400">{e.org}</p>
+                  <ul className="space-y-1">
+                    {e.points.map((p) => (
+                      <li key={p} className="flex gap-2.5 text-sm text-gray-600">
+                        <span className="mt-0.5 shrink-0 text-gray-300">–</span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* ── Compétences ── */}
           <section className="mb-9">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mb-5">
-              Compétences
-            </h2>
+            <Heading>Formation</Heading>
+            <div className="space-y-3">
+              {education.map((f) => (
+                <div key={f.title} className="flex items-baseline justify-between">
+                  <div>
+                    <span className="text-sm font-semibold">{f.title}</span>
+                    <span className="text-sm text-gray-400"> · {f.school}</span>
+                  </div>
+                  <span className="ml-6 whitespace-nowrap text-xs text-gray-400">{f.period}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-9">
+            <Heading>Compétences</Heading>
             <div className="space-y-2.5">
-              {CV_DATA.competences.map(({ label, items }) => (
-                <div key={label} className="flex gap-4 items-baseline">
-                  <span className="text-xs text-gray-400 w-16 shrink-0">{label}</span>
+              {skills.map(({ domain, items }) => (
+                <div key={domain} className="flex items-baseline gap-4">
+                  <span className="w-24 shrink-0 text-xs text-gray-400">{domain}</span>
                   <span className="text-sm text-gray-700">{items.join(', ')}</span>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* ── Projets ── */}
           <section>
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mb-5">
-              Projets
-            </h2>
+            <Heading>Projets</Heading>
             <div className="space-y-3">
-              {CV_DATA.projets.map((p, i) => (
-                <div key={i} className="flex justify-between items-baseline gap-4">
-                  <div className="flex gap-3 items-baseline min-w-0">
-                    <span className="text-sm font-semibold text-gray-900 whitespace-nowrap">{p.nom}</span>
-                    <span className="text-sm text-gray-500 truncate">{p.desc}</span>
+              {cvProjects.map((p) => (
+                <div key={p.name} className="flex items-baseline justify-between gap-4">
+                  <div className="flex min-w-0 items-baseline gap-3">
+                    <span className="whitespace-nowrap text-sm font-semibold">{p.name}</span>
+                    <span className="truncate text-sm text-gray-500">{p.desc}</span>
                   </div>
-                  <span className="text-xs text-gray-400 whitespace-nowrap shrink-0">{p.stack}</span>
+                  <span className="shrink-0 whitespace-nowrap text-xs text-gray-400">{p.stack}</span>
                 </div>
               ))}
             </div>
           </section>
-
         </div>
       </div>
 
       <style jsx global>{`
         @media print {
-          .no-print  { display: none !important; }
-          .cv-wrap   { padding: 0; background: white; min-height: auto; }
-          .cv-sheet  { box-shadow: none; max-width: 100%; }
-          body       { background: white; }
+          .no-print { display: none !important; }
+          .cv-wrap { padding: 0; background: white; min-height: auto; }
+          .cv-sheet { box-shadow: none; max-width: 100%; padding: 2rem 2.5rem; }
+          body { background: white; }
+          .grain { display: none; }
         }
       `}</style>
     </>
