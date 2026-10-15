@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { profile, seo, siteUrl } from '@/lib/content'
 import './globals.css'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
@@ -15,15 +16,49 @@ const instrument = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Tom Doguet — Assistant chef de projet informatique',
-  description:
-    'Portfolio de Tom Doguet : assistant chef de projet informatique en alternance chez Batigère, concepteur développeur d’applications, MAALSI au CESI.',
+  metadataBase: new URL(siteUrl),
+  title: { default: seo.title, template: `%s — ${profile.name}` },
+  description: seo.description,
+  applicationName: profile.name,
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  keywords: [
+    'Tom Doguet',
+    'portfolio',
+    'chef de projet informatique',
+    'assistant chef de projet',
+    'concepteur développeur d’applications',
+    'MAALSI',
+    'CESI',
+    'Batigère',
+    'alternance',
+    'Metz',
+    'React',
+    'Spring Boot',
+    'PL/SQL',
+  ],
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Tom Doguet — Du code au pilotage de projet',
-    description: 'Assistant chef de projet informatique en alternance chez Batigère · MAALSI au CESI.',
+    type: 'profile',
+    url: '/',
+    siteName: profile.name,
+    title: `${profile.name} — ${seo.tagline}`,
+    description: seo.description,
     locale: 'fr_FR',
-    type: 'website',
+    firstName: 'Tom',
+    lastName: 'Doguet',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${profile.name} — ${seo.tagline}`,
+    description: seo.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
+  formatDetection: { email: false, telephone: false, address: false },
 }
 
 export const viewport: Viewport = {
