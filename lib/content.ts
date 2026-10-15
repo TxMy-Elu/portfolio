@@ -1,9 +1,9 @@
 export const siteUrl = 'https://www.tom-doguet.app'
 
 export const seo = {
-  title: 'Tom Doguet — Assistant chef de projet informatique',
+  title: 'Tom Doguet · Assistant chef de projet informatique',
   description:
-    'Portfolio de Tom Doguet, assistant chef de projet informatique en alternance chez Batigère à Metz. Concepteur développeur d’applications, en mastère MAALSI au CESI (2026–2028). Projets, parcours et contact.',
+    'Tom Doguet, assistant chef de projet informatique en alternance chez Batigère à Metz. Concepteur développeur, en mastère MAALSI au CESI.',
   tagline: 'Du code au pilotage de projet.',
 }
 
@@ -17,11 +17,11 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/tom-doguet-7b8457271',
     github: 'https://github.com/TxMy-Elu',
   },
-  quote: "Un bon logiciel n'est pas celui qui sort le plus vite — c'est celui qui a encore du sens un an plus tard.",
+  quote: "Un bon logiciel n'est pas celui qui sort le plus vite, c'est celui qui a encore du sens un an plus tard.",
 }
 
 export const stats = [
-  { value: '49 481', label: 'matchs historiques modélisés dans matchday-ai' },
+  { value: '49 481', label: 'matchs historiques modélisés dans matchday-ai' },
   { value: '2', label: 'applications en production : matchday-ai et wisikard.fr' },
   { value: 'Bac+5', label: 'MAALSI en cours au CESI, jusqu’en 2028' },
 ]
@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   {
     role: 'Assistant chef de projet informatique',
     org: 'Batigère · alternance',
-    period: '2026 — auj.',
+    period: 'Depuis 2026',
     current: true,
     points: [
       'Planning projet, jalons et suivi d’avancement',
@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
   {
     role: 'Concepteur logiciels',
     org: 'Batigère · alternance',
-    period: '2025 — 2026',
+    period: '2025 - 2026',
     points: [
       'Développement applicatif sur le système d’information',
       'Conception et maintenance de traitements PL/SQL',
@@ -78,10 +78,10 @@ export type Education = {
 }
 
 export const education: Education[] = [
-  { title: 'Mastère MAALSI — Manager en architecture et applications logicielles des SI', school: 'CESI · alternance', period: '2026 — 2028', current: true },
-  { title: 'Bachelor CDA — Concepteur développeur d’applications', school: 'CESI · alternance', period: '2025 — 2026' },
-  { title: 'BTS SIO', school: 'Lycée Raymond Poincaré', period: '2023 — 2025' },
-  { title: '1re année informatique', school: 'Université de Lorraine', period: '2022 — 2023' },
+  { title: 'Mastère MAALSI (Manager en architecture et applications logicielles des SI)', school: 'CESI · alternance', period: '2026 - 2028', current: true },
+  { title: 'Bachelor CDA (Concepteur développeur d’applications)', school: 'CESI · alternance', period: '2025 - 2026' },
+  { title: 'BTS SIO', school: 'Lycée Raymond Poincaré', period: '2023 - 2025' },
+  { title: '1re année informatique', school: 'Université de Lorraine', period: '2022 - 2023' },
   { title: 'Baccalauréat STI2D', school: 'Lycée Raymond Poincaré', period: '2022' },
 ]
 
@@ -99,13 +99,13 @@ export const featuredProject = {
   name: 'matchday-ai',
   tagline: 'Prédiction de matchs internationaux',
   description:
-    'Probabilités victoire / nul / défaite, buts attendus et distribution complète des scores pour n’importe quelle affiche de la Coupe du monde 2026. Ratings Elo, GLM de Poisson corrigé Dixon-Coles et simulation Monte Carlo du tableau final — un modèle interprétable plutôt qu’une boîte noire.',
+    'Probabilités victoire / nul / défaite, buts attendus et distribution complète des scores pour n’importe quelle affiche de la Coupe du monde 2026. Ratings Elo, GLM de Poisson corrigé Dixon-Coles et simulation Monte Carlo du tableau final. Un modèle interprétable plutôt qu’une boîte noire.',
   stack: ['Python', 'FastAPI', 'scikit-learn', 'statsmodels', 'React'],
   live: 'https://matchday-ai.vercel.app',
   repo: 'https://github.com/TxMy-Elu/matchday-ai',
   figures: [
-    { value: '49 481', label: 'matchs, 1872 → 2026' },
-    { value: '20 000', label: 'tirages Monte Carlo' },
+    { value: '49 481', label: 'matchs, 1872 → 2026' },
+    { value: '20 000', label: 'tirages Monte Carlo' },
     { value: 'Elo + Poisson', label: 'modèle calibré' },
   ],
 }

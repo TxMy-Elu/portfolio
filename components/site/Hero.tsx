@@ -54,7 +54,7 @@ export default function Hero() {
             {profile.status}
           </span>
           <span>
-            {profile.location} — <time suppressHydrationWarning>{time ?? '--:--'}</time>
+            {profile.location} · <time suppressHydrationWarning>{time ?? '--:--'}</time>
           </span>
         </motion.div>
       </div>
@@ -81,8 +81,8 @@ export default function Hero() {
         >
           <p className="text-lg leading-relaxed text-muted md:col-span-6 md:text-xl">
             Je suis <span className="text-fg">{profile.name}</span>, assistant chef de projet informatique en
-            alternance chez Batigère. Concepteur développeur de formation, je prépare le mastère MAALSI au CESI —
-            un pied dans le code, l’autre dans le pilotage.
+            alternance chez Batigère. Concepteur développeur de formation, je prépare le mastère MAALSI au CESI.
+            Un pied dans le code, l’autre dans le pilotage.
           </p>
           <div className="flex flex-wrap gap-3 md:col-span-6 md:justify-end">
             <a href="#projets" className="btn btn-primary">

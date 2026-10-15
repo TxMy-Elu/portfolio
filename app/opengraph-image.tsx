@@ -1,12 +1,12 @@
 import { ImageResponse } from 'next/og'
 import { profile } from '@/lib/content'
 
-export const alt = `${profile.name} — Du code au pilotage de projet`
+export const alt = `${profile.name} · Du code au pilotage de projet`
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 const HEADLINE = 'Du code au pilotage de projet.'
-const FOOTER = `${profile.name} — ${profile.role} · Batigère × CESI · tom-doguet.app TD.`
+const FOOTER = `${profile.name} · ${profile.role} · Batigère × CESI · tom-doguet.app TD.`
 
 async function loadGoogleFont(family: string, text: string) {
   const css = await (
@@ -77,7 +77,7 @@ export default async function OpengraphImage() {
           }}
         >
           <div style={{ display: 'flex' }}>
-            <span style={{ color: '#141412' }}>{profile.name}</span>&nbsp;— {profile.role}
+            <span style={{ color: '#141412' }}>{profile.name}</span>&nbsp;· {profile.role}
           </div>
           <div style={{ display: 'flex' }}>Batigère × CESI</div>
         </div>

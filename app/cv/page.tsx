@@ -58,7 +58,7 @@ export default function CVPage() {
                   <ul className="space-y-1">
                     {e.points.map((p) => (
                       <li key={p} className="flex gap-2.5 text-sm text-gray-600">
-                        <span className="mt-0.5 shrink-0 text-gray-300">–</span>
+                        <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-gray-300" />
                         {p}
                       </li>
                     ))}
